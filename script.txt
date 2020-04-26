@@ -1,0 +1,78 @@
+<?php
+class EmptyClassJustForTheStyleLibGrid {}
+
+function styleGridGeral() {
+    echo <<<HTML
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" />
+    <style>
+		@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+         body {
+              font-family: 'Nunito', sans-serif !important;
+              background-color: #f9f9f9 !important;
+        } 
+	</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+HTML;
+}
+
+function styleGrid() {
+    echo <<<HTML
+	
+    <style>
+	.scGridLabelFont {
+		font-family: 'Nunito', sans-serif !important;
+		color: #000 !important;
+	}
+	.scGridHeader {
+		background-color: transparent !important;
+		border: none !important;
+	}
+	.scGridToolbar {
+		background-color: transparent !important;
+		border: none !important;
+	}
+	.scGridLabel {
+		background-color: transparent !important;
+	}
+	.scGridLabelFont {
+		border: none !important;
+		border-bottom: 1px solid #c6d0dc !important;
+	}
+	.scGridLabelFont:hover {
+		border: none !important;
+		border-bottom: 1px solid #c6d0dc !important;
+	}
+	.scGridBorder {
+		border: none !important;
+		box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12), 0 1px 5px 0 rgba(0,0,0,.2) !important;
+	}
+	.scGridHeaderFont {
+		color: #000000 !important;
+		font-family: 'Nunito', sans-serif !important;
+		font-size: 35px !important;
+		padding: 5px 2px !important;
+	}
+	</style>
+		
+HTML;
+}
+
+//PEGA O TIPO DE APLICAÇÃO
+$appType = explode("_", $this->Ini->nm_cod_apl)[0];
+
+//DESABILITAR MOBILE DO SCRIPTCASE
+$_SESSION['scriptcase']['display_mobile'] = false; 
+$_SESSION['scriptcase']['device_mobile'] = false;
+
+switch($appType) {
+	case "grid":
+		styleGrid();
+		styleGridGeral();
+		break;
+	case "cons":
+		break;
+}
+?>
